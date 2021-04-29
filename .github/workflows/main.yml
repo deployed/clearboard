@@ -1,0 +1,41 @@
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+
+  Test:
+    name: Test
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn  
+
+      - name: Test
+        run: yarn test --watchAll=false
+
+  Linter:
+    name: Linter
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn  
+
+      - name: Run linter
+        run: yarn lint
+
+  Build:
+    name: Build
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn      
+        
+      - name: Build
+        run: yarn build
