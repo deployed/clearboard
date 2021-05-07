@@ -1,15 +1,10 @@
-import * as React from 'react';
-import { StyleProvider } from 'providers';
-import { Button } from '@material-ui/core';
+import { Router, StyleProvider } from 'providers';
 
 function App() {
   return (
     <StyleProvider>
-      <Button onClick={() => alert('Take me on!')}>
-        Take on me
-        </Button>
-    </StyleProvider>
-      
+      <Router />
+     </StyleProvider>      
   );
 }
 
