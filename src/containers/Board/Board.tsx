@@ -1,14 +1,15 @@
-import { useParams } from 'react-router'
+import { useParams } from 'react-router';
 
-const Board = () => {
-
-  const { boardId } = useParams<{ boardId: string }>();
-  console.log('asd')
-  return (
-    <div>
+const Board: React.FC = () => {
+    const { boardId } = useParams<{ boardId: string }>();
+    console.log('asd');
+    return (
+        <div>
+            <div>
       board: { boardId}
-    </div>
-  )
-}
+            </div>
+        </div>
+    );
+};
 
-export default Board
+export default Board;

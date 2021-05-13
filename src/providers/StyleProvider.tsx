@@ -4,15 +4,15 @@ import { ThemeProvider } from 'styled-components';
 import theme from './theme';
 
 
-const StyleProvider: React.FC = ({children}) => {
-  return (
-    <MUIThemeProvider theme={theme}>
-      <ThemeProvider theme={theme}>
-        {children}
-      </ThemeProvider>
-    </MUIThemeProvider>
-  )
-}
+const StyleProvider: React.FC = ({ children }) => {
+    return (
+        <MUIThemeProvider theme={theme}>
+            <ThemeProvider theme={theme}>
+                {children}
+            </ThemeProvider>
+        </MUIThemeProvider>
+    );
+};
 
 export default StyleProvider;
 

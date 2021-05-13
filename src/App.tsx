@@ -1,11 +1,11 @@
-import { Router, StyleProvider } from 'providers';
+import { Router, StyleProvider, MobXProvider } from 'providers';
 
-function App() {
-  return (
-    <StyleProvider>
-      <Router />
-     </StyleProvider>      
-  );
-}
+const App: React.FC = () => (
+    <MobXProvider>
+        <StyleProvider>
+            <Router />
+        </StyleProvider>
+    </MobXProvider> 
+);
 
 export default App;
