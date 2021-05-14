@@ -8,6 +8,7 @@ import { createBrowserHistory } from 'history';
 import {
     Board
 } from 'containers';
+import { Home } from 'containers/Home';
 
 const history = createBrowserHistory();
 
@@ -15,7 +16,7 @@ const Router: React.FC = () => (
     <RRDRouter history={history}>
         <Switch>
             <Route exact path="/">
-        main
+                <Home />      
             </Route>
             <Route path="/board/:boardId">
                 <Board />

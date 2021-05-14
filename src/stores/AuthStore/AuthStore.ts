@@ -1,3 +1,1 @@
-export default class AuthStore {
-  
-}
+export default class AuthStore { }
