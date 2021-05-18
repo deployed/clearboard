@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ component: Component }) => {
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
-            <AppDrawer anchor="left" open={isDrawerOpen} >
+            <AppDrawer data-testingId="drawer" anchor="left" open={isDrawerOpen} >
                 <IconButton onClick={() => setIsDrawerOpen(false)}>
                     <ChevronLeftIcon />
                 </IconButton>
