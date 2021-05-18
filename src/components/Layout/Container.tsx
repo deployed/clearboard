@@ -3,6 +3,7 @@ import styled from 'styled-components';
 type ContainerProps = {
   center?: boolean;
   fullSize?: boolean;
+  fullScreen?: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -16,7 +17,11 @@ const Container = styled.div<ContainerProps>`
     height: 100%;
     width: 100%;
   ` : ''}
-
+ 
+ ${({ fullScreen }) => fullScreen ? `
+    height: 100vh;
+    width: 100vw;
+  ` : ''}
 `;
 
 export default Container;

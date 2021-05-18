@@ -6,9 +6,11 @@ import {
 import { createBrowserHistory } from 'history';
 
 import {
-    Board
+    Home,
+    Dashboard,
+    Board,
+    Navbar
 } from 'containers';
-import { Home } from 'containers/Home';
 
 const history = createBrowserHistory();
 
@@ -18,8 +20,11 @@ const Router: React.FC = () => (
             <Route exact path="/">
                 <Home />      
             </Route>
+            <Route path="/dashboard">
+                <Navbar component={Dashboard} />
+            </Route>
             <Route path="/board/:boardId">
-                <Board />
+                <Navbar component={Board} />
             </Route>
         </Switch>
     </RRDRouter>

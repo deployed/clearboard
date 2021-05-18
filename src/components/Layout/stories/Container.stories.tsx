@@ -34,3 +34,9 @@ export const CenteredFullSize: React.FC = () => (
         </Container>
     </div>
 );
+
+export const FullScreen: React.FC = () => (
+    <Container fullScreen style={{ backgroundColor: 'black', color: 'white' }}>
+          What?
+    </Container>
+);

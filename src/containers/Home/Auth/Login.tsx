@@ -2,12 +2,17 @@ import styled from 'styled-components';
 import { useFormik } from 'formik';
 import { Button, TextField } from '@material-ui/core';
 import { Container } from 'components/Layout';
+import { useHistory } from 'react-router-dom';
 
 const Form = styled.form`
     display: flex;
+    flex-direction: column;
+    height: 300px;
 `;
 
 const Login: React.FC = () => {
+    const history = useHistory();
+
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -15,6 +20,7 @@ const Login: React.FC = () => {
         },
         onSubmit: (values) => {
             console.log(JSON.stringify(values, null, 2));
+            history.push('/dashboard');
         }
     });
     

@@ -4,7 +4,7 @@ import { Login } from './Auth';
 
 const Home: React.FC = () => {
     return (
-        <Container fullSize center>
+        <Container fullScreen center>
             <Login />
         </Container>
     );
