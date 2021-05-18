@@ -1,16 +1,11 @@
-import * as React from 'react';
-import { StyleProvider } from 'providers';
-import { Button } from '@material-ui/core';
+import { Router, StyleProvider, MobXProvider } from 'providers';
 
-function App() {
-  return (
-    <StyleProvider>
-      <Button onClick={() => alert('Take me on!')}>
-        Take on me
-        </Button>
-    </StyleProvider>
-      
-  );
-}
+const App: React.FC = () => (
+    <MobXProvider>
+        <StyleProvider>
+            <Router />
+        </StyleProvider>
+    </MobXProvider> 
+);
 
 export default App;
