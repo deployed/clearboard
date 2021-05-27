@@ -20,7 +20,7 @@ beforeEach(() => {
 });
 
 describe('Card', () => {
-    it('renders component with author', async () => {
+    it('renders component with author', () => {
         const { getByText } = render(<Card {...props} />);
   
         const result = getByText(defaultProps.author);
@@ -28,7 +28,7 @@ describe('Card', () => {
         expect(result).toBeTruthy();
     });
 
-    it('renders component with text', async () => {
+    it('renders component with text', () => {
         const { getByText } = render(<Card {...props} />);
   
         const result = getByText(defaultProps.text);
@@ -36,7 +36,7 @@ describe('Card', () => {
         expect(result).toBeTruthy();
     });
 
-    it('renders component with number fo votes', async () => {
+    it('renders component with number fo votes', () => {
         const { getByText } = render(<Card {...props} />);
   
         const result = getByText(defaultProps.numberOfVotes);
@@ -44,7 +44,7 @@ describe('Card', () => {
         expect(result).toBeTruthy();
     });
 
-    it('calls onVoteDown function if corresponding button clicked', async () => {
+    it('calls onVoteDown function if corresponding button clicked', () => {
         props.onVoteDown = jest.fn();
         const { getByRole } = render(<Card {...props} />);
   
@@ -53,7 +53,7 @@ describe('Card', () => {
         expect(props.onVoteDown).toHaveBeenCalledTimes(1);
     });
 
-    it('calls onVoteUp function if corresponding button clicked', async () => {
+    it('calls onVoteUp function if corresponding button clicked', () => {
         props.onVoteUp = jest.fn();
         const { getByRole } = render(<Card {...props} />);
   
