@@ -11,6 +11,7 @@ import {
     Board,
     Navbar
 } from 'containers';
+import Register from 'containers/Home/Auth/components/RegisterForm/Register';
 
 const history = createBrowserHistory();
 
@@ -19,6 +20,9 @@ const Router: React.FC = () => (
         <Switch>
             <Route exact path="/">
                 <Home />      
+            </Route>
+            <Route exact path="/register">
+                <Register />      
             </Route>
             <Route path="/dashboard">
                 <Navbar component={Dashboard} />
