@@ -1,31 +1,23 @@
 import React from 'react';
 
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import {
+    Box,
+    Typography,
+    IconButton
+} from '@material-ui/core';
 
-import SettingsIcon from '@material-ui/icons/Settings';
-import ThumbDownIcon from '@material-ui/icons/ThumbDown';
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import { 
+    Settings,
+    ThumbDown,
+    ThumbUp
+} from '@material-ui/icons';
 
 import { CardContainer, CardTitle, Author, SettingsButton, CardContent, CardFooter, Votes } from './styles';
 
-type CardProps = {
-    author: string;
-    text: string;
-    numberOfVotes: number;
-    coordinates: { x: number; y: number; };
-    onVoteUp: () => void;
-    onVoteDown: () => void;
-    color: string;
-    size: { width: number; height: number; };
-}
+import { CardProps } from './types';
 
 
-const Card: React.FC<CardProps> = props => {
-    const { author, text, numberOfVotes, color, coordinates, size } = props;
-    const { onVoteUp, onVoteDown } = props;
-
+const Card: React.FC<CardProps> = ({ author, text, numberOfVotes, color, coordinates, size, onVoteUp, onVoteDown }) => {
     return (
         <CardContainer size={size} coordinates={coordinates}>
             <header>
@@ -33,8 +25,8 @@ const Card: React.FC<CardProps> = props => {
                 <Box m={1}>
                     <Author>{author}</Author>
                 </Box>
-                <SettingsButton color={color}>
-                    <SettingsIcon />
+                <SettingsButton _color={color}>
+                    <Settings />
                 </SettingsButton>
             </header>
             <CardContent>
@@ -42,11 +34,11 @@ const Card: React.FC<CardProps> = props => {
             </CardContent>
             <CardFooter>
                 <IconButton onClick={onVoteDown} aria-label="thumb-down">
-                    <ThumbDownIcon fontSize="small"/>
+                    <ThumbDown fontSize="small"/>
                 </IconButton>
                 <Votes>{numberOfVotes}</Votes>
                 <IconButton onClick={onVoteUp} aria-label="thumb-up">
-                    <ThumbUpIcon fontSize="small"/>
+                    <ThumbUp fontSize="small"/>
                 </IconButton>
             </CardFooter>
         </CardContainer>
