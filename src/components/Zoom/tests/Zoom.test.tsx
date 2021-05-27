@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react';
-import { useState } from 'react';
 
 import Zoom from '../Zoom';
 
-describe('Navbar', () => {
-    const [zoomValue, setZoomValue] = useState<number>(100);
+describe('Zoom', () => {
+    const zoomMockValue = 100;
+    const setZoomValueMock = jest.fn();
     it('renders given component', async () => {
-        const { getByText } = render(<Zoom zoomValue={zoomValue} setZoomValue={setZoomValue} />);
+        const { getByText } = render(<Zoom value={zoomMockValue} setValue={setZoomValueMock} />);
 
-        const result = await getByText('Henlo');
+        const result = getByText('Henlo');
 
         expect(result).toBeTruthy();
     });

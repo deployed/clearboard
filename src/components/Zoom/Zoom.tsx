@@ -6,49 +6,43 @@ import AddIcon from '@material-ui/icons/Add';
 import { ZoomInput, ZoomWrapper, ZoomInputWrapper } from './zoom-styles';
 
 interface ZoomProps {
-    zoomValue: number;
-    setZoomValue: (n: number) => void;
+    value: number;
+    setValue: (n: number) => void;
 }
 
-const Zoom: React.FC<ZoomProps> = ({ zoomValue, setZoomValue }) => {
+const Zoom: React.FC<ZoomProps> = ({ value, setValue }) => {
     const inputHandler = (value: number): void => {
         if (value <= 200 && value >= 50) {
-            setZoomValue(value);
+            setValue(value);
         }
     };
 
     const validateInput = (value: number): void => {
         if (value > 200) {
-            setZoomValue(200);
+            setValue(200);
         }
         if (value < 50) {
-            setZoomValue(50);
+            setValue(50);
         }
     };
 
     return (
         <ZoomWrapper>
-            <IconButton
-                size={'small'}
-                aria-label="delete"
-                onClick={() => inputHandler(zoomValue - 1)}
-            >
+            <IconButton size={'small'} aria-label="delete" onClick={() => inputHandler(value - 1)}>
                 <RemoveIcon />
             </IconButton>
+
             <ZoomInputWrapper>
                 <ZoomInput
                     type="number"
-                    value={zoomValue}
-                    onChange={(e) => setZoomValue(Number(e.target.value))}
+                    value={value}
+                    onChange={(e) => setValue(Number(e.target.value))}
                     onBlur={(e) => validateInput(Number(e.target.value))}
                 />
                 %
             </ZoomInputWrapper>
-            <IconButton
-                size={'small'}
-                aria-label="delete"
-                onClick={() => inputHandler(zoomValue + 1)}
-            >
+
+            <IconButton size={'small'} aria-label="delete" onClick={() => inputHandler(value + 1)}>
                 <AddIcon />
             </IconButton>
         </ZoomWrapper>
