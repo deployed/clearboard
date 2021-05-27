@@ -41,11 +41,11 @@ const Card: React.FC<CardProps> = props => {
                 <Typography>{text}</Typography>
             </CardContent>
             <CardFooter>
-                <IconButton onClick={onVoteDown}>
+                <IconButton onClick={onVoteDown} aria-label="thumb-down">
                     <ThumbDownIcon fontSize="small"/>
                 </IconButton>
                 <Votes>{numberOfVotes}</Votes>
-                <IconButton onClick={onVoteUp}>
+                <IconButton onClick={onVoteUp} aria-label="thumb-up">
                     <ThumbUpIcon fontSize="small"/>
                 </IconButton>
             </CardFooter>
