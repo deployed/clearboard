@@ -1,8 +1,14 @@
 import React from 'react';
-import SettingsIcon from '@material-ui/icons/Settings';
-import Typography from '@material-ui/core/Typography';
 
-import { CardContainer, CardTitle, SettingsButton, CardFooter } from './styles';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+
+import SettingsIcon from '@material-ui/icons/Settings';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+
+import { CardContainer, CardTitle, Author, SettingsButton, CardContent, CardFooter, Votes } from './styles';
 
 type CardProps = {
     author: string;
@@ -15,23 +21,33 @@ type CardProps = {
     size: { width: number; height: number; };
 }
 
+
 const Card: React.FC<CardProps> = props => {
     const { author, text, numberOfVotes, color, coordinates, size } = props;
+    const { onVoteUp, onVoteDown } = props;
 
     return (
         <CardContainer size={size} coordinates={coordinates}>
             <header>
                 <CardTitle _color={color}>Created by</CardTitle>
-                <Typography>{author}</Typography>
+                <Box m={1}>
+                    <Author>{author}</Author>
+                </Box>
                 <SettingsButton color={color}>
                     <SettingsIcon />
                 </SettingsButton>
             </header>
-            <Typography>{text}</Typography>
+            <CardContent>
+                <Typography>{text}</Typography>
+            </CardContent>
             <CardFooter>
-                <button>-</button>
-                {numberOfVotes}
-                <button>+</button>
+                <IconButton onClick={onVoteDown}>
+                    <ThumbDownIcon fontSize="small"/>
+                </IconButton>
+                <Votes>{numberOfVotes}</Votes>
+                <IconButton onClick={onVoteUp}>
+                    <ThumbUpIcon fontSize="small"/>
+                </IconButton>
             </CardFooter>
         </CardContainer>
     );
