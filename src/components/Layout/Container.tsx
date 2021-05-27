@@ -4,6 +4,7 @@ type ContainerProps = {
   center?: boolean;
   fullSize?: boolean;
   fullScreen?: boolean;
+  clock?: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
