@@ -40,3 +40,11 @@ export const FullScreen: React.FC = () => (
           What?
     </Container>
 );
+
+export const HalfScreen: React.FC = () => (
+    <div style={{ height: '50vh' }}>
+        <Container fullSize style={{ backgroundColor: 'blue' }}>
+            sthg 
+        </Container>
+    </div>    
+);
