@@ -1,27 +1,57 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
+import { ZoomInput, ZoomWrapper, ZoomInputWrapper } from './zoom-styles';
 
-const Zoom: React.FC = () => {
-    const [zoomValue, setZoomValue] = useState<number>(100);
+interface ZoomProps {
+    zoomValue: number;
+    setZoomValue: (n: number) => void;
+}
+
+const Zoom: React.FC<ZoomProps> = ({ zoomValue, setZoomValue }) => {
+    const inputHandler = (value: number): void => {
+        if (value <= 200 && value >= 50) {
+            setZoomValue(value);
+        }
+    };
+
+    const validateInput = (value: number): void => {
+        if (value > 200) {
+            setZoomValue(200);
+        }
+        if (value < 50) {
+            setZoomValue(50);
+        }
+    };
 
     return (
-        <>
-            <IconButton aria-label="delete" onClick={() => setZoomValue(zoomValue - 1)}>
+        <ZoomWrapper>
+            <IconButton
+                size={'small'}
+                aria-label="delete"
+                onClick={() => inputHandler(zoomValue - 1)}
+            >
                 <RemoveIcon />
             </IconButton>
-            <input
-                type="number"
-                value={zoomValue}
-                onChange={(e) => setZoomValue(Number(e.target.value))}
-            />
-            %
-            <IconButton aria-label="delete" onClick={() => setZoomValue(zoomValue + 1)}>
+            <ZoomInputWrapper>
+                <ZoomInput
+                    type="number"
+                    value={zoomValue}
+                    onChange={(e) => setZoomValue(Number(e.target.value))}
+                    onBlur={(e) => validateInput(Number(e.target.value))}
+                />
+                %
+            </ZoomInputWrapper>
+            <IconButton
+                size={'small'}
+                aria-label="delete"
+                onClick={() => inputHandler(zoomValue + 1)}
+            >
                 <AddIcon />
             </IconButton>
-        </>
+        </ZoomWrapper>
     );
 };
 
