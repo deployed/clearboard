@@ -36,13 +36,14 @@ const Zoom: React.FC<ZoomProps> = ({ value, setValue }) => {
                 <ZoomInput
                     type="number"
                     value={value}
+                    aria-label="zoom-input"
                     onChange={(e) => setValue(Number(e.target.value))}
                     onBlur={(e) => validateInput(Number(e.target.value))}
                 />
                 %
             </ZoomInputWrapper>
 
-            <IconButton size={'small'} aria-label="delete" onClick={() => inputHandler(value + 1)}>
+            <IconButton size={'small'} aria-label="add" onClick={() => inputHandler(value + 1)}>
                 <AddIcon />
             </IconButton>
         </ZoomWrapper>
