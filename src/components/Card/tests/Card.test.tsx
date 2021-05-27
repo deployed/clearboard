@@ -20,28 +20,12 @@ beforeEach(() => {
 });
 
 describe('Card', () => {
-    it('renders component with author', () => {
+    it('renders component', () => {
         const { getByText } = render(<Card {...props} />);
-  
-        const result = getByText(defaultProps.author);
 
-        expect(result).toBeTruthy();
-    });
-
-    it('renders component with text', () => {
-        const { getByText } = render(<Card {...props} />);
-  
-        const result = getByText(defaultProps.text);
-
-        expect(result).toBeTruthy();
-    });
-
-    it('renders component with number fo votes', () => {
-        const { getByText } = render(<Card {...props} />);
-  
-        const result = getByText(defaultProps.numberOfVotes);
-
-        expect(result).toBeTruthy();
+        expect(getByText(defaultProps.author)).toBeTruthy();
+        expect(getByText(defaultProps.text)).toBeTruthy();
+        expect(getByText(defaultProps.numberOfVotes)).toBeTruthy();
     });
 
     it('calls onVoteDown function if corresponding button clicked', () => {
